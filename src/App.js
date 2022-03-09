@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AddStudent from "./components/addstudent";
+import AddStudent from "./components/home";
 
 function App() {
   return (
