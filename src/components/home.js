@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import Cart from "./cart";
+
 import '../css/home.css'
 
 export default function AddStudent(props) {
@@ -52,18 +53,54 @@ export default function AddStudent(props) {
 
     return (
 
-        <div>
+       
 
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#" onClick={() => fiterbyType("t-shirt")}>t-shirt</a>
-                    <a class="dropdown-item" href="#" onClick={() => fiterbyType("dress shirts")}>dress shirts</a>
-                    <a class="dropdown-item" href="#" onClick={() => fiterbyType("Others")}>Others</a>
+        <div>
+             <Cart/>
+            <div className="row">
+                <div className="col-4">
+                    <h3>Sizes</h3>
                 </div>
+
+                <div className="col-4">
+                    <p>{data.length} Product(s) Found</p>
+                </div>
+                   
+                <div className="order col-4">
+
+                    <span>
+                    <p> Order By
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onClick={() => fiterbyType("t-shirt")}>t-shirt</a>
+                            <a class="dropdown-item" href="#" onClick={() => fiterbyType("dress shirts")}>dress shirts</a>
+                            <a class="dropdown-item" href="#" onClick={() => fiterbyType("Others")}>Others</a>
+                        </div>
+                    </div>
+                    </p>
+                    </span>
+                </div>
+
+                
+                
+
+
+
             </div>
+
+          
+
+
+
+
+
+
+
+
             <div className="row1">
 
 
@@ -87,16 +124,16 @@ export default function AddStudent(props) {
 
                 <div className="col2">
 
-                <div className="row">
-                    {data.map((product) => {
+                    <div className="row">
+                        {data.map((product) => {
 
 
-                        return (
+                            return (
 
 
-                            <div className="home">
+                                <div className="home">
 
-                                {/* <div className="col-sm-4 col-md-3 mb-5">
+                                    {/* <div className="col-sm-4 col-md-3 mb-5">
                                 <div class="card h-100 text-center p-4" key={product.id} style={{ width: '18rem' }}>
                                     <img src={product.details.image} class="card-img-top" alt={product.name} height="250px" />
                                     <div class="card-body">
@@ -112,31 +149,31 @@ export default function AddStudent(props) {
                             </div> */}
 
 
-                                <div className="card">
-                                    <div className="container">
-                                        <label hidden={!(product.details.tag === "Free Shipping")}  class=" btn-sm top-right">Free Shipping</label>
-                                        <img src={product.details.image} class="card-img-top" alt={product.name} />
-                                        <div className="card-body">
-                                            <h5 className="card-title">{product.name}</h5>
-                                            <hr id="hr"></hr>
-                                            <p className="card-text">$<b className="price">{product.details.price}</b></p>
+                                    <div className="card">
+                                        <div className="container">
+                                            <label hidden={!(product.details.tag === "Free Shipping")} class=" btn-sm top-right">Free Shipping</label>
+                                            <img src={product.details.image} class="card-img-top" alt={product.name} />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{product.name}</h5>
+                                                <hr id="hr"></hr>
+                                                <p className="card-text">$<b className="price">{product.details.price}</b></p>
 
+                                            </div>
                                         </div>
+                                        <button type="button" id="Cart" class="btn btn-lg">Add to cart</button>
                                     </div>
-                                    <button type="button" id="Cart" class="btn btn-lg">Add to cart</button>
                                 </div>
-                            </div>
 
 
 
-                        )
-                    })}
+                            )
+                        })}
+                    </div>
                 </div>
-                </div>
 
 
 
-               
+
             </div >
 
         </div>
