@@ -7,19 +7,17 @@ export default function Cart(props){
 const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
-        const getProducts = async () => {
+        const getCartItems = async () => {
 
             setCartItems(props.data);
            
         }
-        getProducts();
+       getCartItems();
     }, [])
 
 
 
     function openNav() {
-
-        // console.log(props.data[0].name);
 
         // change the width of the sidebar
         document.getElementById("myNav").style.width = "25%";
@@ -38,12 +36,7 @@ const [cartItems, setCartItems] = useState([]);
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onClick={()=>closeNav()}>&times;</a>
         <div class="overlay-content">
-          {/* <a href="#">Item 1</a>
-          <a href="#">Item 2</a>
-          <a href="#">Item 3</a>
-          <a href="#">Item 4</a> */}
-{/* 
-          <p>{cartItems.name}</p> */}
+ 
 
           {cartItems.map((item)=>{
 

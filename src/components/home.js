@@ -1,20 +1,23 @@
+//Home Component
+//Import React Hooks
 import React, { useState, useEffect } from "react";
+
+//Import Child Component
 import Cart from "./cart";
 
+//Import CSS
 import '../css/home.css'
 
 export default function AddStudent(props) {
-    let [name, setName] = useState("");
-    let [age, setAge] = useState("");
-    let [gender, setGender] = useState("");
+
+    //UseState declaration
     let [data, setData] = useState([]);
     let [duplicatedata, setduplicatedata] = useState([]);
-    let [freeshipping, setfreeshipping] = useState(true);
     let [cart, setCart] = useState([]);
 
 
 
-
+    //UseEffect Hook to get Product details
     useEffect(() => {
         const getProducts = async () => {
 
@@ -29,14 +32,7 @@ export default function AddStudent(props) {
     }, [])
 
 
-
-
-
-
-
-
-
-
+    //Filter by size fuction
     function filterBySize(size) {
 
         const updatedItems = duplicatedata.filter((x) => x.details.size === size);
@@ -45,6 +41,8 @@ export default function AddStudent(props) {
 
     }
 
+    
+    //Filter by type fuction
     function fiterbyType(type) {
 
         const updatedItems = duplicatedata.filter((x) => x.details.type === type);
@@ -52,19 +50,18 @@ export default function AddStudent(props) {
 
     }
 
-    function AddToCart (object){
+    //Add to Cart Function
+    function AddToCart(object) {
 
-        // console.log(object);
         setCart(state => [...state, object]);
-       
+
     }
 
+    //Return Statement
     return (
 
-       
-
         <div>
-             <Cart  data={cart}/>
+            <Cart data={cart} />
             <div className="row">
                 <div className="col-4">
                     <h3>Sizes</h3>
@@ -73,49 +70,34 @@ export default function AddStudent(props) {
                 <div className="col-4">
                     <p>{data.length} Product(s) Found</p>
                 </div>
-                   
+
                 <div className="order col-4">
 
                     <span>
-                    <p> Order By
-
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Select
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onClick={() => fiterbyType("t-shirt")}>t-shirt</a>
-                            <a class="dropdown-item" href="#" onClick={() => fiterbyType("dress shirts")}>dress shirts</a>
-                            <a class="dropdown-item" href="#" onClick={() => fiterbyType("Others")}>Others</a>
-                            <a class="dropdown-item" href="#" onClick={() => setData(duplicatedata)}>All</a>
-                        </div>
-                    </div>
-                    </p>
+                        <p> Order By
+                           {/* select by type dropdown */}
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Select
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#" onClick={() => fiterbyType("t-shirt")}>t-shirt</a>
+                                    <a class="dropdown-item" href="#" onClick={() => fiterbyType("dress shirts")}>dress shirts</a>
+                                    <a class="dropdown-item" href="#" onClick={() => fiterbyType("Others")}>Others</a>
+                                    <a class="dropdown-item" href="#" onClick={() => setData(duplicatedata)}>All</a>
+                                </div>
+                            </div>
+                        </p>
                     </span>
                 </div>
 
-                
-                
-
-
-
             </div>
-
-          
-
-
-
-
-
-
-
 
             <div className="row1">
 
-
                 <div className="col1">
 
-
+                    {/* select by size buttons */}
                     <button type="button" class="btn1 rounded-circle" onClick={() => filterBySize("xsmall")}>XS</button>
                     <button type="button" class="btn1  rounded-circle" onClick={() => filterBySize("small")}>S</button>
                     <button type="button" class="btn1  rounded-circle" onClick={() => filterBySize("medium")}>M</button>
@@ -123,40 +105,21 @@ export default function AddStudent(props) {
                     <button type="button" class="btn1  rounded-circle" onClick={() => filterBySize("large")}>L</button>
                     <button type="button" class="btn1 rounded-circle" onClick={() => filterBySize("xlarge")}>XL</button>
                     <button type="button" class="btn1 rounded-circle" onClick={() => filterBySize("xxlarge")}>XXL</button>
+                    <button type="button" class="btn1 rounded-circle" onClick={() => setData(duplicatedata)}>ALL</button>
 
                 </div>
 
-
-
                 <br />
 
-
                 <div className="col2">
-
                     <div className="row">
                         {data.map((product) => {
 
 
                             return (
-
-
+                             
                                 <div className="home">
-
-                                    {/* <div className="col-sm-4 col-md-3 mb-5">
-                                <div class="card h-100 text-center p-4" key={product.id} style={{ width: '18rem' }}>
-                                    <img src={product.details.image} class="card-img-top" alt={product.name} height="250px" />
-                                    <div class="card-body">
-                                        <h5 class="card-title mb-0">{product.name}</h5>
-                                        <p class="card-text lead fw-bold">Rs. {product.details.price}</p>
-                                        <p hidden={!(product.details.tag === "Free Shipping")}> Free Shipping</p>
-
-
-                                    </div>
-                                </div>
-
-
-                            </div> */}
-
+                                    {/* item cards */}
 
                                     <div className="card">
                                         <div className="container">
@@ -169,7 +132,7 @@ export default function AddStudent(props) {
 
                                             </div>
                                         </div>
-                                        <button type="button" id="Cart" class="btn btn-lg" onClick={()=> AddToCart(product)}>Add to cart</button>
+                                        <button type="button" id="Cart" class="btn btn-lg" onClick={() => AddToCart(product)}>Add to cart</button>
                                     </div>
                                 </div>
 
