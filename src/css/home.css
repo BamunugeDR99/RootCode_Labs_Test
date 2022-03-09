@@ -1,0 +1,82 @@
+.home .card{
+    width: 20rem;
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+   
+  }
+  
+  .home .card-img-top{
+    height: 400px;
+  }
+  
+  .home .card-title{
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .home #Cart{
+    align-items: center;
+    background-color: black;
+    color: white;
+    text-transform: initial;
+   
+  }
+  
+  .home #hr{
+    background-color: orange;
+    width: 35px;
+    height: 2px;
+    
+  }
+  
+  .home .card-text{
+    text-align: center;
+    color: black !important;
+  }
+  
+  .home .price{
+    font-size: 25px;
+    color: black !important;
+  }
+  
+  .home .top-right{
+    
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      text-transform: initial;
+      color: white;
+      background-color: black;
+      font-weight: bold;
+      font-size: 8px;  
+  }
+
+  .col1{
+      float:left;
+      width: 15%;
+      padding: 10px;
+  }
+
+  .col2{
+      float: right;
+      width: 75%;
+      padding: 10px;
+
+
+  }
+
+  .row1:after {
+ 
+    content: "";
+    display: table;
+    clear: both;
+
+  }
+
+  .btn1{
+      border: none;
+      width: 50px;
+      height: 50px;
+      margin: 3px;
+  }
