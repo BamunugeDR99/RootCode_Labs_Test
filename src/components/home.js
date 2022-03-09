@@ -10,6 +10,7 @@ export default function AddStudent(props) {
     let [data, setData] = useState([]);
     let [duplicatedata, setduplicatedata] = useState([]);
     let [freeshipping, setfreeshipping] = useState(true);
+    let [cart, setCart] = useState([]);
 
 
 
@@ -51,12 +52,19 @@ export default function AddStudent(props) {
 
     }
 
+    function AddToCart (object){
+
+        // console.log(object);
+        setCart(state => [...state, object]);
+       
+    }
+
     return (
 
        
 
         <div>
-             <Cart/>
+             <Cart  data={cart}/>
             <div className="row">
                 <div className="col-4">
                     <h3>Sizes</h3>
@@ -79,6 +87,7 @@ export default function AddStudent(props) {
                             <a class="dropdown-item" href="#" onClick={() => fiterbyType("t-shirt")}>t-shirt</a>
                             <a class="dropdown-item" href="#" onClick={() => fiterbyType("dress shirts")}>dress shirts</a>
                             <a class="dropdown-item" href="#" onClick={() => fiterbyType("Others")}>Others</a>
+                            <a class="dropdown-item" href="#" onClick={() => setData(duplicatedata)}>All</a>
                         </div>
                     </div>
                     </p>
@@ -160,7 +169,7 @@ export default function AddStudent(props) {
 
                                             </div>
                                         </div>
-                                        <button type="button" id="Cart" class="btn btn-lg">Add to cart</button>
+                                        <button type="button" id="Cart" class="btn btn-lg" onClick={()=> AddToCart(product)}>Add to cart</button>
                                     </div>
                                 </div>
 

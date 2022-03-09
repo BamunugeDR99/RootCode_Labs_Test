@@ -2,10 +2,25 @@ import React, { useState, useEffect } from "react";
 
 import '../css/cart.css'
 
-export default function Cart(){
+export default function Cart(props){
+
+const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+        const getProducts = async () => {
+
+            setCartItems(props.data);
+           
+        }
+        getProducts();
+    }, [])
+
 
 
     function openNav() {
+
+        // console.log(props.data[0].name);
+
         // change the width of the sidebar
         document.getElementById("myNav").style.width = "25%";
       }
@@ -15,18 +30,33 @@ export default function Cart(){
       }
 
 
+      console.log(cartItems);
+
     return(
         <div>
             
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onClick={()=>closeNav()}>&times;</a>
         <div class="overlay-content">
-
-        
-          <a href="#">Item 1</a>
+          {/* <a href="#">Item 1</a>
           <a href="#">Item 2</a>
           <a href="#">Item 3</a>
-          <a href="#">Item 4</a>
+          <a href="#">Item 4</a> */}
+{/* 
+          <p>{cartItems.name}</p> */}
+
+          {cartItems.map((item)=>{
+
+
+                return(
+                    <div>
+
+                        <p>{item}</p>
+                    </div>
+                )
+
+
+          })}
         </div>
       </div>
 

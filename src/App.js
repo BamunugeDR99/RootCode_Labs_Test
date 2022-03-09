@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AddStudent from "./components/home";
+import Home from "./components/home";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
 
       <Routes>
       
-       <Route exact path="/add" element={<AddStudent/>} />
+       <Route exact path="/" element={<Home/>} />
      
        </Routes> 
      </Router>
