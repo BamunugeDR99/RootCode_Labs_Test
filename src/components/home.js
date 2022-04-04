@@ -24,8 +24,9 @@ export default function AddStudent(props) {
             const response = await fetch("https://my-json-server.typicode.com/prasadhewage/ecommerce/shipments");
 
             console.log(response.clone().json());
+            //Clones the response and returns a JSON object of the response
             setData(await response.clone().json());
-            setduplicatedata(await response.clone().json())
+            setduplicatedata(await response.clone().json());
 
         }
         getProducts();
@@ -54,6 +55,10 @@ export default function AddStudent(props) {
     function AddToCart(object) {
 
         setCart(state => [...state, object]);
+
+        // console.log(cart);
+
+        // props.push({state:cart});
 
     }
 

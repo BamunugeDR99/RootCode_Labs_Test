@@ -1,3 +1,4 @@
+//Testing
 import React, { useState, useEffect } from "react";
 
 import '../css/cart.css'
@@ -6,20 +7,26 @@ export default function Cart(props){
 
 const [cartItems, setCartItems] = useState([]);
 
-    useEffect(() => {
-        const getCartItems = async () => {
+    // useEffect(() => {
+    //     const getCartItems = async () => {
 
-            setCartItems(props.data);
+    //         setCartItems(props.data);
            
-        }
-       getCartItems();
-    }, [])
+    //     }
+    //    getCartItems();
+    // }, [])
 
+    console.log(props.data);
 
+    // props.data.map((item)=> {
 
+    //   console.log(item);
+    // })
+
+    //OpenNav Function
     function openNav() {
 
-        // change the width of the sidebar
+        // change the width of the sidebar ---> Access the myNav through DOM and manipulate it's style
         document.getElementById("myNav").style.width = "25%";
       }
       
@@ -28,23 +35,26 @@ const [cartItems, setCartItems] = useState([]);
       }
 
 
-      console.log(cartItems);
+      // console.log(cartItems);
 
     return(
         <div>
             
+    {/* shopping cart overlay */}
     <div id="myNav" class="overlay">
+
+    {/* javascript:void(0) -- > Makes the browser stays on the same page by returning an undefined result */}
         <a href="javascript:void(0)" class="closebtn" onClick={()=>closeNav()}>&times;</a>
         <div class="overlay-content">
  
 
-          {cartItems.map((item)=>{
+          {props.data.map((item)=>{
 
 
                 return(
                     <div>
 
-                        <p>{item}</p>
+                        <p style={{color: "white"}}>{item.name}</p>
                     </div>
                 )
 
